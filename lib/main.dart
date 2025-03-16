@@ -27,13 +27,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,40 +48,49 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             photoContainer(
-              imageURL:
+              imagePath:
                   'https://fastly.picsum.photos/id/179/2048/1365.jpg?hmac=GJyDjrvfBfjPfJPqSBd2pX6sjvsGbG10d21blr5bTS8',
+              imageSource: 'network',
             ),
             SizedBox(height: 20),
             photoContainer(
-              imageURL:
+              imagePath:
                   'https://fastly.picsum.photos/id/200/1920/1280.jpg?hmac=-eKjMC8-UrbLMpy1A4OWrK0feVPB3Ka5KNOGibQzpRU',
+              imageSource: 'network',
             ),
-                        Text(
+            SizedBox(height: 20),
+            photoContainer(
+              imagePath: 'assets/images/cat-photo.jpg',
+              imageSource: 'asset',
+            ),
+            Text(
               "My Text",
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 20,
-                fontStyle: FontStyle.italic),
+                fontStyle: FontStyle.italic,
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
     );
   }
 
-  Container photoContainer({required String imageURL}) {
+  Container photoContainer({
+    required String imagePath,
+    required String imageSource,
+  }) {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Image.network(imageURL, width: 200, height: 200),
+      child:
+          imageSource == 'asset'
+              ? Image.asset(imagePath, width: 200, height: 200)
+              : Image.network(imagePath, width: 200, height: 200),
     );
   }
 }
