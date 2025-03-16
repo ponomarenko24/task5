@@ -63,6 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
               imageURL:
                   'https://fastly.picsum.photos/id/200/1920/1280.jpg?hmac=-eKjMC8-UrbLMpy1A4OWrK0feVPB3Ka5KNOGibQzpRU',
             ),
+                        Text(
+              "My Text",
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 20,
+                fontStyle: FontStyle.italic),
+            ),
           ],
         ),
       ),
