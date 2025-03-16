@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,19 +42,34 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.transparent,
         title: Align(
           alignment: Alignment.centerLeft,
-          child:Text(widget.title),
-        )
+          child: Text(widget.title),
+        ),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          spacing: 20,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              "Beautiful Images",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
             ),
-          ],
+            Container(
+              width: 100,
+              height: 100,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey
+                ),
+                borderRadius: BorderRadius.circular(10),
+                
+              ),
+            ),
+           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
